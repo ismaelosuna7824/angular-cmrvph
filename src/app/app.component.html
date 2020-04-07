@@ -1,0 +1,73 @@
+<div class="mains" style="height: auto">
+  <div class="ingresar"  *ngIf="page1">
+    <br>
+      <div class="input-group mb-3 col-md-5">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">ingresar cantidad</span>
+      </div>
+      <input type="number" class="form-control" aria-label="Default"  aria-describedby="inputGroup-sizing-default" (keyup.enter)="add()"  [(ngModel)]="cantidades" placeholder="presiona Enter para agregar">
+    </div>
+    <ul class="list-group col-md-2" style="margin-left: 20px">
+      <li class="list-group-item" *ngFor="let dts of cantobj">
+        {{dts.cantidad}}
+      </li>
+  </ul><br>
+  <button style="margin-left: 20px;" class='btn btn-primary' (click)="siguiente()">Empezar juego</button>
+
+  <div style="margin-left: 20px">
+    <ul>
+      <li class="instrucciones">Precionar en el teclado en minusculas</li>
+      <li class="instrucciones">Q: Pregunta correcta</li>
+      <li class="instrucciones">W: Banco</li>
+      <li class="instrucciones">E: Pregunta Incorrecta</li>
+      <li class="instrucciones">R: Finalizar Ronda</li>
+       <li class="instrucciones">T: Volver a iniciar ronda</li>
+    </ul>
+  </div>
+    
+  </div>
+
+  <div *ngIf="page2"><br>
+    <div class="blue-square-container">
+      <div class="blue-square">
+        <div *ngFor="let dtss of cantobj; let i = index;">
+          <a href="#" [class]="dtss.check">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+            {{dtss.cantidad}}
+          </a>
+      </div>
+      </div>
+    </div><br>
+    <div class="blue-square-container" *ngIf="viewBanco">
+      <div class="blue-square">
+       
+          <a href="#" class="animated-button3">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+           {{banco}}
+          </a>
+      
+      </div>
+    </div><br>
+    <div class="blue-square-container" *ngIf="viewTotal">
+      <div class="blue-square">
+       
+          <a href="#" class="animated-button2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+           {{total}}
+          </a>
+      
+      </div>
+    </div><br>
+  </div>
+  
+
+</div>
